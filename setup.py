@@ -1,4 +1,5 @@
 import os
+import re
 from setuptools import setup
 
 # Allow setup.py to be run from any path.
@@ -6,7 +7,11 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 ROOT = os.path.abspath(os.path.dirname(__file__))
 
 project_name = 'vcf2prs'
-project_version = __import__(project_name).__version__
+# Read the version without importing runtime dependencies during an isolated build.
+with open(os.path.join(ROOT, project_name, '__init__.py'), encoding='utf-8') as init_file:
+    project_version = re.search(
+        r"^__version__\s*=\s*['\"]([^'\"]+)['\"]", init_file.read(), re.MULTILINE
+    ).group(1)
 project_readme_fname = 'README.rst'
 project_author = 'Lorenzo Ficorella; Andrew Lee'
 
