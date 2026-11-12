@@ -1,0 +1,1 @@
+These 2 annotation reference files are from Fachal, L., Aschard, H., Beesley, J. et al. Fine-mapping of 150 breast cancer risk regions identifies 191 likely target genes. Nat Genet 52, 56–73 (2020). https://doi.org/10.1038/s41588-019-0537-1
